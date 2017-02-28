@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct node
+{
+ int data;
+ node* left;
+ node* right;
+};
+int findmin(node* tem)
+{
+    
+    if(tem->left==NULL)
+    return tem->data;
+    else
+    
+    return findmin(tem->left);
+}
+int findmax(node* tem)
+{
+    
+    if(tem->right==NULL)
+    return tem->data;
+    else
+    
+    return findmax(tem->right);
+}
+int main() {
+node* root=NULL;
+int n,c;
+cin>>n;
+node* ptr;
+for(int i=0;i<n;i++)
+    {
+       cin>>c;
+       node* temp=new node();
+       temp->data=c;
+       temp->left=NULL;
+       temp->right=NULL;
+       
+       if(root==NULL) root=temp;
+       
+       else 
+       
+       {
+       ptr=root;
+       while(1)
+       {
+       if(temp->data>=ptr->data)
+       {
+           if(ptr->right!=NULL)
+           ptr=ptr->right;
+           else break;
+       }
+       else
+       {
+           if(ptr->left!=NULL)
+           ptr=ptr->left;
+           else break;
+       }
+       }
+    
+           if(temp->data>=ptr->data) ptr->right=temp;
+           else ptr->left=temp;
+       }
+    
+}
+cout<<findmin(root)<<endl;
+cout<<findmax(root)<<endl;
+}
