@@ -58,3 +58,5 @@ for(int i=0;i<n;i++)
 }
  cout<<isBST(root,INT_MIN,INT_MAX);
 }
+
+/* or we can perform inorder traversal and it should be sorted */
